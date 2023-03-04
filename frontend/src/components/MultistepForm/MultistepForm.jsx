@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../pages/AboutYou.css";
 const courseObj = {
   name: "",
   age: 0,
@@ -6,7 +7,7 @@ const courseObj = {
   gender: "",
   interests: [],
   genderPreferences: [],
-  profession: [],
+  profession: "",
   image: "",
   tagline: "",
   bio: "",
@@ -33,150 +34,242 @@ const interestData = [
     icon: "",
     title: "Badmintion",
   },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
+  {
+    icon: "",
+    title: "Badmintion",
+  },
 ];
 function MultistepForm(props) {
   const [formStep, setFormStep] = useState(0);
   const [formData, setFormData] = useState(courseObj);
-  const [videoData, setVideoData] = useState(videoObj);
   const completeFormStep = () => {
-    console.log("clicked");
-    console.log(formStep);
-    if (formStep > 0) {
-      var values = [];
-      for (var k in videoData) {
-        values.push(videoData[k]);
-      }
-
-      formData.videos.push(values);
-      setVideoData(videoObj);
+    if (formStep == 2) {
+      //submit data
+      return;
     }
-    setFormStep(formStep + 1);
+    setFormStep((curr) => curr + 1);
   };
 
-  const [counter, setCounter] = useState(0);
-  function handleClick() {
-    console.log(counter);
-    setCounter(counter + 1);
-  }
   const handleInput = (ev) => {
+    console.log(ev.target.style.backgroundColor);
     setFormData({
       ...formData,
       [ev.target.name]:
-        ev.target.name === "duration"
+        ev.target.name === "age"
           ? parseInt(ev.target.value, 10)
           : ev.target.value,
     });
   };
-  const handleInput2 = (ev) => {
-    setVideoData({
-      ...videoData,
-      [ev.target.name]: ev.target.value,
-    });
-  };
+  function handleInput2(ev) {
+    const t2 = { ...formData };
+    t2.profession = ev;
+    setFormData(t2);
+  }
+
+  function handleInterests(title) {
+    if (formData.interests && !formData.interests.includes(title)) {
+      const t2 = { ...formData };
+      t2.interests = [...t2.interests, title];
+      setFormData(t2);
+    } else {
+      const i = formData.interests.indexOf(title);
+      const t2 = { ...formData };
+      t2.interests.splice(i, 1);
+      setFormData(t2);
+    }
+  }
+  function handleGenderInterest(title) {
+    if (
+      formData.genderPreferences &&
+      !formData.genderPreferences.includes(title)
+    ) {
+      const t2 = { ...formData };
+      t2.genderPreferences = [...t2.genderPreferences, title];
+      setFormData(t2);
+    } else {
+      const i = formData.genderPreferences.indexOf(title);
+      const t2 = { ...formData };
+      t2.genderPreferences.splice(i, 1);
+      setFormData(t2);
+    }
+  }
+
   return (
-    <div>
-      <form className="login-form addAdmin">
+    <div className="multistep-wrapper">
+      <form className="login-form multistep-form">
         {formStep === 0 && (
           <section>
             <h1>Course Details</h1>
             <input
-              placeholder="Enter course name"
+              placeholder="Name"
               type="text"
-              name="programname"
+              name="name"
               onChange={handleInput}
-              value={formData.programname}
-              required
+              value={formData.name}
             />
             <input
-              placeholder="Enter course duration"
+              placeholder="Age"
               type="number"
-              name="duration"
+              name="age"
               onChange={handleInput}
-              value={formData.duration}
-              required
+              value={formData.age}
             />
             <input
-              placeholder="Enter course description"
+              placeholder="Birthday (DD/MM/YY)"
               type="text"
-              name="description"
+              name="birthday"
               onChange={handleInput}
-              value={formData.description}
-              required
+              value={formData.birthday}
             />
             <input
-              placeholder="Enter course image URL"
+              placeholder="Gender"
               type="text"
-              name="image"
+              name="gender"
               onChange={handleInput}
-              value={formData.image}
-              required
+              value={formData.gender}
             />
           </section>
         )}
-
-        {formStep > 0 && (
+        {formStep === 1 && (
+          <>
+            <p>{"Interests (upto 10)"}</p>
+            <section className="aboutyou-interests">
+              {interestData.map((value, key) => {
+                return (
+                  <div
+                    className="interest-select"
+                    key={key}
+                    id={`multistep${key}`}
+                    style={{ backgroundColor: "white" }}
+                    onClick={() => {
+                      handleInterests(value.title);
+                      const d = document.querySelector(`#multistep${key}`);
+                      d.style.backgroundColor =
+                        d.style.backgroundColor == "white" ||
+                        d.style.backgroundColor == "transparent"
+                          ? "#CBFFE4"
+                          : "white";
+                    }}
+                  >
+                    <img src={value.icon} />
+                    {value.title}
+                  </div>
+                );
+              })}
+            </section>
+            <p>{"Gender Preference"}</p>
+            <section className="aboutyou-interests">
+              {["Male", "Female", "Others"].map((value, key) => {
+                return (
+                  <div
+                    className="interest-select"
+                    key={key}
+                    onClick={() => {
+                      handleGenderInterest(value);
+                    }}
+                  >
+                    {value}
+                  </div>
+                );
+              })}
+            </section>
+            <p>{"Profession"}</p>
+            <section className="aboutyou-interests">
+              {[
+                "Student",
+                "Working Professional",
+                "Business",
+                "Unemployed",
+              ].map((value, key) => {
+                return (
+                  <div
+                    className="interest-select"
+                    key={key}
+                    id="profession"
+                    onClick={() => {
+                      handleInput2(value);
+                    }}
+                  >
+                    {value}
+                  </div>
+                );
+              })}
+            </section>
+          </>
+        )}
+        {formStep === 2 && (
           <section>
-            <h1>Week {formStep}</h1>
+            <p>Face verification</p>
             <input
-              type="text"
-              placeholder="Day 1"
-              name="day1"
-              onChange={handleInput2}
-              value={videoData.day1}
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleInput}
             />
+            <p>Tagline</p>
             <input
               type="text"
-              placeholder="Day 2"
-              name="day2"
-              onChange={handleInput2}
-              value={videoData.day2}
+              name="tagline"
+              onChange={handleInput}
+              placeholder="One-liner that best describes you."
             />
+            <p>Bio</p>
             <input
               type="text"
-              placeholder="Day 3"
-              name="day3"
-              onChange={handleInput2}
-              value={videoData.day3}
-            />
-            <input
-              type="text"
-              placeholder="Day 4"
-              name="day4"
-              onChange={handleInput2}
-              value={videoData.day4}
-            />
-            <input
-              type="text"
-              placeholder="Day 5"
-              name="day5"
-              onChange={handleInput2}
-              value={videoData.day5}
-            />
-            <input
-              type="text"
-              placeholder="Day 6"
-              name="day6"
-              onChange={handleInput2}
-              value={videoData.day6}
-            />
-            <input
-              type="text"
-              placeholder="Day 7"
-              name="day7"
-              onChange={handleInput2}
-              value={videoData.day7}
+              name="bio"
+              onChange={handleInput}
+              placeholder="A short bio about you."
             />
           </section>
         )}
-
-        {(formStep != formData.duration + 1 || formStep === 0) && (
+        <pre>{JSON.stringify(formData)}</pre>
+        {formStep < 3 && (
           <button onClick={() => completeFormStep()} type="button">
-            Next
-          </button>
-        )}
-        {formStep === formData.duration + 1 && formStep > 0 && (
-          <button onClick={submitForm} type="button">
-            Submit
+            {formStep == 2 ? "Submit" : "Next"}
           </button>
         )}
       </form>

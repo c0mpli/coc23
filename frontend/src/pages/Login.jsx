@@ -45,7 +45,6 @@ function Login() {
   }
   return (
     <div className="login-wrapper">
-      <div className="blur-div"></div>
       <Navbar />
       <div className="content-wrapper">
         <div className="login-form-container">

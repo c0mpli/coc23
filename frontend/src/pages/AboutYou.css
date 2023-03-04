@@ -1,0 +1,13 @@
+.aboutyou-interests {
+  display: flex;
+  flex-wrap: wrap;
+}
+.multistep-wrapper {
+  height: 100vh;
+}
+.multistep-form {
+  padding-top: 10rem !important;
+}
+.login-wrapper {
+  overflow-y: hidden !important;
+}
