@@ -1,13 +1,25 @@
 .aboutyou-interests {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+  width: 45%;
+  align-items: center;
+  justify-content: center;
 }
 .multistep-wrapper {
   height: 100vh;
 }
 .multistep-form {
-  padding-top: 10rem !important;
+  padding-top: 7rem !important;
 }
 .login-wrapper {
   overflow-y: hidden !important;
+}
+.first-multistep {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
 }

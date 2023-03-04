@@ -8,8 +8,12 @@ import Chatroom from "./pages/Chatroom";
 import Login from "./pages/Login";
 import AboutYou from "./pages/AboutYou";
 import Dashboard from "./pages/Dashboard";
+import { useAuthContext } from "./hooks/useAuthContext";
+import Events from "./pages/Events";
 
 function App() {
+  const { user } = useAuthContext();
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -18,7 +22,11 @@ function App() {
           <Route path={"/chatroom"} element={<Chatroom />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/aboutyou"} element={<AboutYou />} />
-          <Route path={"/dashboard"} element={<Dashboard />} />
+          <Route
+            path={"/dashboard"}
+            element={user ? <Dashboard /> : <Login />}
+          />
+          <Route path={"/events"} element={user ? <Events /> : <Login />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -2,10 +2,11 @@ import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import navbarIcon from "../../assets/navbar-icon.png";
+import { useAuthContext } from "../../hooks/useAuthContext";
 function Navbar(props) {
   const navigate = useNavigate();
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-
+  const { user, dispatch } = useAuthContext();
   function handleClick() {
     setIsNavExpanded(!isNavExpanded);
   }
@@ -17,6 +18,15 @@ function Navbar(props) {
       ? navbar.classList.add("fixed")
       : navbar.classList.remove("fixed");
   });
+
+  function handleLogout() {
+    localStorage.removeItem("name");
+    localStorage.removeItem("role");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    dispatch({ type: "LOGOUT" });
+    navigate("../");
+  }
 
   return (
     <>
@@ -33,11 +43,16 @@ function Navbar(props) {
               </Link>
             </li>
             <li>
-              <Link to="/blog" id="blog">
-                Blog
+              <Link to="/events" id="events">
+                Events
               </Link>
             </li>
-            {props.logged != "true" && (
+            {user && (
+              <li>
+                <button onClick={handleLogout}>Logout</button>
+              </li>
+            )}
+            {!user && (
               <li>
                 <button onClick={() => navigate("/login")}>Login</button>
               </li>

@@ -3,31 +3,30 @@ import "./Login.css";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
-import bgImage from "../assets/login.png";
+import { useAuthContext } from "../hooks/useAuthContext";
+
 function Login() {
-  const navigate = useNavigate();
+  const { dispatch } = useAuthContext();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log("Clicked");
     axios
-      .post("https://docwebsite.adityasurve1.repl.co/user/userlogin", {
+      .post("https://coc-1.adityasurve1.repl.co/user/userlogin", {
         email: email,
         password: password,
       })
       .then((response) => {
-        //console.log(response.data);
+        console.log(response.data);
         setErrorMessage("");
-        //dispatch({ type: "LOGIN", payload: response.data });
+        dispatch({ type: "LOGIN", payload: response.data });
         localStorage.setItem("user", JSON.stringify(response.data));
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("name", response.data.firstname);
-        localStorage.setItem("role", response.data.usertype);
-        if (response.data.usertype === "user") navigate("../dashboard");
-        else navigate("../managecourses");
+        localStorage.setItem("name", response.data.name);
+        navigate("../dashboard");
       })
       .catch((err) => {
         console.log(err.message);
@@ -68,10 +67,12 @@ function Login() {
             <div>
               <Link>Forget Password?</Link>
             </div>
-            <button onClick={(e) => handleSubmit(e)}>Sign in</button>
+            <button type="button" onClick={handleSubmit}>
+              Sign in
+            </button>
             <div className="login-subtitle">
               <p>New Here?</p>
-              <Link to="/signup">Signup</Link>
+              <Link to="/aboutyou">Signup</Link>
             </div>
           </form>
         </div>

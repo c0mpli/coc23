@@ -1,86 +1,113 @@
 import React, { useState } from "react";
 import "../../pages/AboutYou.css";
+
+import multistep1 from "../../assets/multiform/1.png";
+import multistep2 from "../../assets/multiform/2.png";
+import multistep3 from "../../assets/multiform/3.png";
+import multistep4 from "../../assets/multiform/4.png";
+import multistep5 from "../../assets/multiform/5.png";
+import multistep6 from "../../assets/multiform/6.png";
+import multistep7 from "../../assets/multiform/7.png";
+import multistep8 from "../../assets/multiform/8.png";
+import multistep9 from "../../assets/multiform/9.png";
+import multistep10 from "../../assets/multiform/10.png";
+import multistep11 from "../../assets/multiform/11.png";
+import multistep12 from "../../assets/multiform/12.png";
+import multistep13 from "../../assets/multiform/13.png";
+import multistep14 from "../../assets/multiform/14.png";
+import multistep15 from "../../assets/multiform/15.png";
+import multistep16 from "../../assets/multiform/16.png";
+import multistep17 from "../../assets/multiform/17.png";
+import multistep18 from "../../assets/multiform/18.png";
+
+import axios from "axios";
 const courseObj = {
+  email: "",
+  password: "",
+  number: null,
   name: "",
-  age: 0,
+  age: null,
   birthday: "",
   gender: "",
   interests: [],
-  genderPreferences: [],
+  genderPreferences: "",
   profession: "",
   image: "",
   tagline: "",
   bio: "",
 };
-const videoObj = {};
 const interestData = [
   {
-    icon: "",
+    icon: multistep1,
     title: "Badmintion",
   },
   {
-    icon: "",
+    icon: multistep2,
     title: "Swimming",
   },
   {
-    icon: "",
+    icon: multistep3,
     title: "Photography",
   },
   {
-    icon: "",
+    icon: multistep4,
     title: "Football",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep5,
+    title: "Cricket",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep6,
+    title: "Cooking",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep7,
+    title: "Movie-watching",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep8,
+    title: "Concerts",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep9,
+    title: "Bollywood",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep10,
+    title: "Reading",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep11,
+    title: "True Crime",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep12,
+    title: "Backpacking",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep13,
+    title: "Cafe-hopping",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep14,
+    title: "F.R.I.E.N.D.S",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep15,
+    title: "The Office",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep16,
+    title: "Pizza",
   },
   {
-    icon: "",
-    title: "Badmintion",
+    icon: multistep17,
+    title: "Travelling",
+  },
+  {
+    icon: multistep18,
+    title: "HIMYM",
   },
 ];
 function MultistepForm(props) {
@@ -89,17 +116,25 @@ function MultistepForm(props) {
   const completeFormStep = () => {
     if (formStep == 2) {
       //submit data
+      axios
+        .post("https://coc-1.adityasurve1.repl.co/register", formData)
+        .then((res) => {
+          alert("done");
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+
       return;
     }
     setFormStep((curr) => curr + 1);
   };
 
   const handleInput = (ev) => {
-    console.log(ev.target.style.backgroundColor);
     setFormData({
       ...formData,
       [ev.target.name]:
-        ev.target.name === "age"
+        ev.target.name === "age" || ev.target.name === "number"
           ? parseInt(ev.target.value, 10)
           : ev.target.value,
     });
@@ -107,6 +142,11 @@ function MultistepForm(props) {
   function handleInput2(ev) {
     const t2 = { ...formData };
     t2.profession = ev;
+    setFormData(t2);
+  }
+  function handleInput3(ev) {
+    const t2 = { ...formData };
+    t2.genderPreferences = ev;
     setFormData(t2);
   }
 
@@ -141,15 +181,39 @@ function MultistepForm(props) {
   return (
     <div className="multistep-wrapper">
       <form className="login-form multistep-form">
+        <span>
+          <h1>Hi There ! Welcome to Blindr 🥳</h1>
+          <p>Help us know more about you to find the perfect match for you.</p>
+        </span>
         {formStep === 0 && (
-          <section>
-            <h1>Course Details</h1>
+          <section className="first-multistep">
             <input
               placeholder="Name"
               type="text"
               name="name"
               onChange={handleInput}
               value={formData.name}
+            />
+            <input
+              placeholder="Email"
+              type="text"
+              name="email"
+              onChange={handleInput}
+              value={formData.email}
+            />
+            <input
+              placeholder="Mobile number"
+              type="number"
+              name="number"
+              onChange={handleInput}
+              value={formData.number}
+            />
+            <input
+              placeholder="Password"
+              type="password"
+              name="password"
+              onChange={handleInput}
+              value={formData.password}
             />
             <input
               placeholder="Age"
@@ -208,8 +272,9 @@ function MultistepForm(props) {
                   <div
                     className="interest-select"
                     key={key}
+                    id="genderPreferences"
                     onClick={() => {
-                      handleGenderInterest(value);
+                      handleInput3(value);
                     }}
                   >
                     {value}
@@ -266,7 +331,6 @@ function MultistepForm(props) {
             />
           </section>
         )}
-        <pre>{JSON.stringify(formData)}</pre>
         {formStep < 3 && (
           <button onClick={() => completeFormStep()} type="button">
             {formStep == 2 ? "Submit" : "Next"}
