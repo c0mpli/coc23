@@ -9,10 +9,22 @@ function OurtipsCard(props) {
       <h2>{props.title}</h2>
       <p>{props.description}</p>
       <div className="outtips-card-bottomBar">
-        <img src={eyeIcon} />
-        <p>{props.time} read</p>
-        <img src={timeIcon} />
-        <p>{props.views} views</p>
+        {props.events != "true" && (
+          <>
+            <img src={eyeIcon} />
+            <p>{props.time} read</p>
+            <img src={timeIcon} />
+            <p>{props.views} views</p>
+          </>
+        )}
+        {props.events === "true" && (
+          <>
+            <img src={eyeIcon} />
+            <p>{props.time}</p>
+            <img src={timeIcon} />
+            <p>{props.views}</p>
+          </>
+        )}
       </div>
     </div>
   );

@@ -20,13 +20,12 @@ function Login() {
         password: password,
       })
       .then((response) => {
-        console.log(response.data);
         setErrorMessage("");
         dispatch({ type: "LOGIN", payload: response.data });
         localStorage.setItem("user", JSON.stringify(response.data));
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("name", response.data.name);
-        navigate("../dashboard");
+        navigate("../events");
       })
       .catch((err) => {
         console.log(err.message);

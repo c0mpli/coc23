@@ -38,8 +38,8 @@ function Navbar(props) {
         <div className={isNavExpanded ? "navbar-menu expanded" : "navbar-menu"}>
           <ul>
             <li>
-              <Link to="/community" id="community">
-                Community
+              <Link to="/dashboard" id="dashboard">
+                Dashboard
               </Link>
             </li>
             <li>
