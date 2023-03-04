@@ -272,9 +272,19 @@ function MultistepForm(props) {
                   <div
                     className="interest-select"
                     key={key}
+                    style={{ backgroundColor: "white" }}
                     id="genderPreferences"
                     onClick={() => {
                       handleInput3(value);
+                      const d = document.querySelectorAll(`#genderPreferences`);
+                      d.forEach((i) => {
+                        i.style.backgroundColor = "white";
+                      });
+                      d[key].style.backgroundColor =
+                        d[key].style.backgroundColor == "white" ||
+                        d[key].style.backgroundColor == "transparent"
+                          ? "#CBFFE4"
+                          : "white";
                     }}
                   >
                     {value}
@@ -297,6 +307,15 @@ function MultistepForm(props) {
                     id="profession"
                     onClick={() => {
                       handleInput2(value);
+                      const d = document.querySelectorAll(`#profession`);
+                      d.forEach((i) => {
+                        i.style.backgroundColor = "white";
+                      });
+                      d[key].style.backgroundColor =
+                        d[key].style.backgroundColor == "white" ||
+                        d[key].style.backgroundColor == "transparent"
+                          ? "#CBFFE4"
+                          : "white";
                     }}
                   >
                     {value}

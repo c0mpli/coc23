@@ -1,8 +1,6 @@
 import React from "react";
 
 function DashboardCard(props) {
-  console.log(props.friends != "true");
-  console.log(props.friends === "true" && props.interest.contains("friends"));
   props.friends != "true" ||
     (props.friends === "true" && props.interest.contains("friends"));
   {

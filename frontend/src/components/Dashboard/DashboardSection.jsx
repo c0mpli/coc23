@@ -7,7 +7,6 @@ function DashboardSection(props) {
       <h1>{props.title}</h1>
       <div className="dashboard-section-cards">
         {props.cardsData?.map((value, index) => {
-          console.log(value.interest);
           if (index > 2) return;
           return (
             <DashboardCard

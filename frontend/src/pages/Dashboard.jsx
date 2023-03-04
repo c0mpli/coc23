@@ -22,6 +22,19 @@ function Dashboard() {
         console.log(error);
       });
   }
+  function locationUsers() {
+    axios
+      .get("https://coc-1.adityasurve1.repl.co/user/match2", {
+        headers: { token: localStorage.getItem("token") },
+        auth: { user: { _id: localStorage.getItem("token") } },
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   function getData() {
     axios
       .get("https://coc-1.adityasurve1.repl.co/user/test", {
@@ -40,6 +53,7 @@ function Dashboard() {
 
   useEffect(() => {
     matchUsers();
+    locationUsers();
     getData();
   }, []);
 

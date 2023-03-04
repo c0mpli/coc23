@@ -26,6 +26,7 @@ function OurtipsCard(props) {
           </>
         )}
       </div>
+      {props.events === "true" && <button>Join</button>}
     </div>
   );
 }

@@ -2,16 +2,6 @@ import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import "./Landing.css";
 import heroBG from "../assets/hero-bg.png";
-import ExploreCard from "../components/ExploreCard/ExploreCard";
-
-import explore1 from "../assets/explore/1.png";
-import explore2 from "../assets/explore/2.png";
-import explore3 from "../assets/explore/3.png";
-import explore4 from "../assets/explore/4.png";
-import explore5 from "../assets/explore/5.png";
-import explore6 from "../assets/explore/6.png";
-import explore7 from "../assets/explore/7.png";
-import explore8 from "../assets/explore/8.png";
 
 import readmeImg from "../assets/readme.png";
 import featuresIcon from "../assets/featuresIcon.png";
@@ -84,16 +74,6 @@ function Landing() {
           <button>Why you ?🤔</button>
         </div>
       </div>
-      {/*<div className="explore-section">
-        <h1>
-          Your likes. Your person.<br></br> The perfect date.
-        </h1>
-        <div className="explore-grids">
-          {exploreData.map((value, index) => {
-            return <ExploreCard title={value.title} image={value.image} />;
-          })}
-        </div>
-        </div>*/}
       <div className="readme-section">
         <div className="readme-content-wrapper">
           <h1 className="readme-title">
