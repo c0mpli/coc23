@@ -1,0 +1,29 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --HMPLogoBlue: #013765;
+  --HMPLogoGrey: #8b8a8f;
+  --HMPLogoYellow: #fdce02;
+  --HMPOffWhite: #f3f3f4;
+  --HMPOffWhiteCircle: #f3f3f466;
+  --HMPBlue: #0062b5;
+  --HMPSideBarIcons: #013765;
+  --HMPLightBlue: #b8ddfc80;
+  --DarkBG: #000010;
+}
+body,
+html,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
