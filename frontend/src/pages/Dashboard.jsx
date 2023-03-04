@@ -9,6 +9,7 @@ import { useState } from "react";
 function Dashboard() {
   const name = localStorage.getItem("name");
   const [data, setData] = useState();
+  const [locationData, setLocationData] = useState();
   function matchUsers() {
     axios
       .get("https://coc-1.adityasurve1.repl.co/user/match", {
@@ -29,7 +30,7 @@ function Dashboard() {
         auth: { user: { _id: localStorage.getItem("token") } },
       })
       .then((response) => {
-        console.log(response);
+        setLocationData(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -82,74 +83,12 @@ function Dashboard() {
         <DashboardSection
           title="Near You 🗺️"
           color="#CBFFE4"
-          cardsData={[
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-              ],
-            },
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-              ],
-            },
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-              ],
-            },
-          ]}
+          cardsData={locationData}
         />
         <DashboardSection
           title="Cooking Connoissuers ❤️"
           color="#FFE9AA"
-          cardsData={[
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-              ],
-            },
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-              ],
-            },
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-                "Badmintion",
-              ],
-            },
-          ]}
+          cardsData={data}
         />
       </div>
     </div>
