@@ -147,7 +147,14 @@
 .ourtips-cards {
   display: flex;
   gap: 2rem;
-  margin: 0 2rem;
+  margin: 1rem 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.ourtips-cards img {
+  width: 100%;
+  height: auto;
 }
 .newsletter-section {
   display: flex;
@@ -178,4 +185,40 @@
 .newsletter-section img {
   width: 100%;
   z-index: -2;
+}
+@media screen and (max-width: 1200px) {
+  .tips-section {
+  }
+  .ourtips-card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-content {
+    font-size: 1rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .readme-section {
+    display: block;
+  }
+  .readme-section p {
+    font-size: 1rem;
+  }
+  .readme-section img {
+    width: 100%;
+    height: auto;
+  }
+  .features-section {
+    display: block;
+    margin: 0 auto;
+  }
+  .features-lhs,
+  .features-mhs,
+  .features-rhs,
+  .ourtips-card,
+  .hero-content {
+    width: auto !important;
+  }
 }

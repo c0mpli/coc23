@@ -9,15 +9,28 @@ import { useState } from "react";
 function Dashboard() {
   const name = localStorage.getItem("name");
   const [data, setData] = useState();
-  function getData() {
+  function matchUsers() {
     axios
       .get("https://coc-1.adityasurve1.repl.co/user/match", {
         headers: { token: localStorage.getItem("token") },
         auth: { user: { _id: localStorage.getItem("token") } },
       })
       .then((response) => {
-        console.log(response.data);
+        console.log("Matched");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  function getData() {
+    axios
+      .get("https://coc-1.adityasurve1.repl.co/user/test", {
+        headers: { token: localStorage.getItem("token") },
+        auth: { user: { _id: localStorage.getItem("token") } },
+      })
+      .then((response) => {
         setData(response.data);
+        //setData(response.data);
         //setIsLoading(false);
       })
       .catch((error) => {
@@ -26,6 +39,7 @@ function Dashboard() {
   }
 
   useEffect(() => {
+    matchUsers();
     getData();
   }, []);
 
@@ -43,74 +57,13 @@ function Dashboard() {
         <DashboardSection
           title="Your next match might be . . ."
           color="#F2E1FF"
-          cardsData={[
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-              ],
-            },
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-              ],
-            },
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-              ],
-            },
-          ]}
+          cardsData={data}
         />
         <DashboardSection
           title="F.R.I.E.N.D.S Lovers ❤️"
           color="#C5F1FF"
-          cardsData={[
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-              ],
-            },
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-              ],
-            },
-            {
-              title: "Aditya, 21",
-              description: "I’m crazy and awkward and desperate for love!",
-              interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-              ],
-            },
-          ]}
+          cardsData={data}
+          friends="true"
         />
         <DashboardSection
           title="Near You 🗺️"
@@ -120,30 +73,30 @@ function Dashboard() {
               title: "Aditya, 21",
               description: "I’m crazy and awkward and desperate for love!",
               interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
               ],
             },
             {
               title: "Aditya, 21",
               description: "I’m crazy and awkward and desperate for love!",
               interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
               ],
             },
             {
               title: "Aditya, 21",
               description: "I’m crazy and awkward and desperate for love!",
               interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
               ],
             },
           ]}
@@ -156,30 +109,30 @@ function Dashboard() {
               title: "Aditya, 21",
               description: "I’m crazy and awkward and desperate for love!",
               interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
               ],
             },
             {
               title: "Aditya, 21",
               description: "I’m crazy and awkward and desperate for love!",
               interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
               ],
             },
             {
               title: "Aditya, 21",
               description: "I’m crazy and awkward and desperate for love!",
               interest: [
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
-                { title: "Badmintion" },
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
+                "Badmintion",
               ],
             },
           ]}

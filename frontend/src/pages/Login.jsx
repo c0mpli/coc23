@@ -31,15 +31,6 @@ function Login() {
         console.log(err.message);
         setErrorMessage("Incorrect details");
       });
-
-    // const json = await response.data
-    // //console.log(json)
-    // if(response.ok){
-    //     //set state to logged in
-    //     dispatch({type:"LOGIN",payload: json})
-    //     navigate('../dashboard')
-    // }
-    //alert(email + password)
   }
   return (
     <div className="login-wrapper">

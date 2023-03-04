@@ -96,7 +96,7 @@
 
 @media screen and (max-width: 765px) {
   .landing-navbar {
-    width: 100%;
+    width: 90%;
   }
   .navbar-menu ul {
     position: absolute;

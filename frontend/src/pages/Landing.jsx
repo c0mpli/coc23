@@ -175,7 +175,6 @@ function Landing() {
             image={tips3}
           />
         </div>
-        <button>All articles</button>
       </div>
       <div className="newsletter-section">
         <div className="newsletter-content">
