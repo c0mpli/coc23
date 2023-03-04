@@ -1,8 +1,9 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import navbarIcon from "../../assets/navbar-icon.png";
 function Navbar(props) {
+  const navigate = useNavigate();
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   function handleClick() {
@@ -22,18 +23,18 @@ function Navbar(props) {
       <nav className="landing-navbar" id="navbar">
         <div className="navbar-logo">
           <img src={navbarIcon} onClick={() => navigate("/")} />
-          <h1>Voyager</h1>
+          <h1>Blinder</h1>
         </div>
         <div className={isNavExpanded ? "navbar-menu expanded" : "navbar-menu"}>
           <ul>
             <li>
-              <Link to="/" id="home">
-                Home
+              <Link to="/community" id="community">
+                Community
               </Link>
             </li>
             <li>
-              <Link to="/listings" id="listings">
-                Listings
+              <Link to="/blog" id="blog">
+                Blog
               </Link>
             </li>
             {props.logged != "true" && (
