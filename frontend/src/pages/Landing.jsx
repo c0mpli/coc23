@@ -13,6 +13,7 @@ import tips2 from "../assets/ourtips2.png";
 import tips3 from "../assets/ourtips3.png";
 
 import newsLetter from "../assets/newsletterBottom.png";
+import DashboardSection from "../components/Dashboard/DashboardSection";
 
 {
   /*const exploreData = [
@@ -155,6 +156,28 @@ function Landing() {
             views="4.8k"
             image={tips3}
           />
+        </div>
+      </div>
+      <div className="pricing-section">
+        <div className="pricing-lhs">
+          <h1>Free !</h1>
+          <ul>
+            <li>Profile Matching according to interests.</li>
+            <li>30 minute timer for chatting with matched users.</li>
+            <li>Upto 5 free games for each match.</li>
+          </ul>
+          <button>Already Chosen!</button>
+        </div>
+        <div className="pricing-rhs">
+          <h1>Paid, but a small fee</h1>
+          <ul>
+            <li>Profile Boosting with increased visibility rates.</li>
+            <li>Unlimited timer for chatting with matched users.</li>
+            <li>Unlimited free games for each match.</li>
+            <li>See who viewed your profile.</li>
+            <li>New profile suggestions every week.</li>
+          </ul>
+          <button>Upgrade</button>
         </div>
       </div>
       <div className="newsletter-section">

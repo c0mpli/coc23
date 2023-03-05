@@ -16,6 +16,7 @@ function DashboardSection(props) {
               color={props.color}
               gender={value.gender}
               profession={value.profession}
+              title={value.title}
             />
           );
         })}

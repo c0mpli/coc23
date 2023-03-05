@@ -8,6 +8,7 @@
   text-align: center;
   padding: 2rem 2rem;
   width: 25%;
+  margin-bottom: 5rem;
 }
 .outtips-card-bottomBar {
   display: flex;
@@ -20,4 +21,13 @@
 .outtips-card-bottomBar img {
   width: 30px !important;
   height: 30px;
+}
+.eventButton {
+  background-color: #000000;
+  color: white;
+  border-radius: 30px;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
 }

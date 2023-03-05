@@ -1,8 +1,10 @@
 import React from "react";
 import eyeIcon from "../../assets/eye.png";
 import timeIcon from "../../assets/time.png";
+import { useNavigate } from "react-router-dom";
 import "./OurtipsCard.css";
 function OurtipsCard(props) {
+  const navigate = useNavigate();
   return (
     <div className="ourtips-card" style={{ backgroundColor: props.color }}>
       <img src={props.image} />
@@ -26,7 +28,14 @@ function OurtipsCard(props) {
           </>
         )}
       </div>
-      {props.events === "true" && <button>Join</button>}
+      {props.events === "true" && (
+        <button
+          className="eventButton"
+          onClick={() => navigate("../dashboard")}
+        >
+          Join
+        </button>
+      )}
     </div>
   );
 }

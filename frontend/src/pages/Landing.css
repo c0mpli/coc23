@@ -186,6 +186,43 @@
   width: 100%;
   z-index: -2;
 }
+
+.pricing-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  margin-top: 7rem;
+}
+.pricing-lhs,
+.pricing-rhs {
+  padding: 1rem;
+  height: 300px;
+  text-align: left;
+  border: 2px solid #000000;
+  box-shadow: 5px 5px 0px #000000;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.pricing-lhs button,
+.pricing-rhs button {
+  background: #1e1e1e;
+  border-radius: 30px;
+  color: white;
+  height: 2rem;
+  padding: 0 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+.pricing-lhs {
+  background-color: #f2e1ff;
+}
+.pricing-rhs {
+  background-color: #ffe9aa;
+}
 @media screen and (max-width: 1200px) {
   .tips-section {
   }
