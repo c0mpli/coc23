@@ -199,7 +199,7 @@ function Landing() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "black",
+          backgroundColor: "#1E1E1E",
           color: "white",
           height: "5rem",
         }}

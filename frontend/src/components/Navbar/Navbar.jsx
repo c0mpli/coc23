@@ -37,6 +37,25 @@ function Navbar(props) {
         </div>
         <div className={isNavExpanded ? "navbar-menu expanded" : "navbar-menu"}>
           <ul>
+            {user && (
+              <>
+                <li>
+                  <Link to="/dashboard" id="dashboard">
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/events" id="events">
+                    Events
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/discover" id="discover">
+                    Discover
+                  </Link>
+                </li>
+              </>
+            )}
             <li>
               <a
                 href="file://localhost/C:/Users/jashd/OneDrive/Documents/Github/Hackathons/coc23-frontend/frontend/public/map.html"
@@ -47,18 +66,8 @@ function Navbar(props) {
               </a>
             </li>
             <li>
-              <Link to="/events" id="events">
-                Events
-              </Link>
-            </li>
-            <li>
-              <Link to="/discover" id="discover">
-                Discover
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard" id="dashboard">
-                Dashboard
+              <Link to="/shop" id="shop">
+                Shop
               </Link>
             </li>
             {user && (

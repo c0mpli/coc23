@@ -9,6 +9,17 @@ function Events() {
     <div>
       <img src={tpBG} alt="Tp BG" style={{ width: "100%", height: "15vh" }} />
       <Navbar />
+      <h1
+        style={{
+          marginTop: "5rem",
+          padding: "0 5rem",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        Upcoming Events
+      </h1>
       <div className="events-wrapper">
         <OurtipsCard
           title="Speed Dating Experiment"

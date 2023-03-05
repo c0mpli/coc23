@@ -12,6 +12,7 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import Events from "./pages/Events";
 import Chat from "./components/Chat/Chat";
 import Discover from "./pages/Discover";
+import Shop from "./pages/Shop";
 
 function App() {
   const { user } = useAuthContext();
@@ -30,6 +31,7 @@ function App() {
           />
           <Route path={"/events"} element={user ? <Events /> : <Login />} />
           <Route path={"/discover"} element={user ? <Discover /> : <Login />} />
+          <Route path={"/shop"} element={user ? <Shop /> : <Login />} />
         </Routes>
       </BrowserRouter>
     </div>
