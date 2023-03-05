@@ -59,7 +59,7 @@ function Discover() {
             <>
               <DashboardCard
                 name={value.name}
-                description={value.description}
+                description={value.description || value.tagline}
                 interest={value.interests}
                 profession={value.profession || value.qualitfication}
                 gender={value.gender}
