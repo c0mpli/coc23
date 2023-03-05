@@ -14,9 +14,12 @@ const ENDPOINT = "http://localhost:80/";
 
 const Chat = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  setTimeout(function () {
-    setModalOpen(modalOpen ? false : true);
-  }, 20000);
+  const [gameExists, setGameExists] = useState(false);
+  useEffect(() => {
+    setTimeout(function () {
+      setModalOpen(modalOpen ? false : true);
+    }, 20000);
+  }, []);
   const [id, setid] = useState("");
   const [messages, setMessages] = useState([]);
 
@@ -31,7 +34,6 @@ const Chat = () => {
     socket = socketIo(ENDPOINT, { transports: ["websocket"] });
 
     socket.on("connect", () => {
-      alert("Connected");
       setid(socket.id);
     });
     console.log(socket);
@@ -114,7 +116,17 @@ const Chat = () => {
           </button>
         </div>
       </div>
-      {modalOpen && <Modal setOpenModal={setModalOpen} />}
+      {gameExists && (
+        <iframe
+          src="https://psycatgames.com/app/would-you-rather/"
+          width="400"
+          height="600"
+          style={{ zIndex: "2", marginLeft: "2rem" }}
+        ></iframe>
+      )}
+      {modalOpen && (
+        <Modal setOpenModal={setModalOpen} setGameExists={setGameExists} />
+      )}
     </div>
   );
 };

@@ -1,8 +1,23 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 function DashboardCard(props) {
   const navigate = useNavigate();
+  function handleMail() {
+    axios
+      .post("https://coc-1.adityasurve1.repl.co/user/sendemail", {
+        email: props.email,
+        subject: "Someone has viewed your profile",
+        message: "A user has viewed your profile",
+      })
+      .then((response) => {
+        alert("done" + props.email);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setErrorMessage("Incorrect details");
+      });
+  }
   props.friends != "true" ||
     (props.friends === "true" && props.interest.contains("F.R.I.E.N.D.S"));
   {
@@ -30,12 +45,19 @@ function DashboardCard(props) {
             <p>{props.gender}</p>
           </div>
         </div>
-        <button
-          className="dashboardCard-button"
-          onClick={() => navigate("../chatroom")}
-        >
-          Match !
-        </button>
+        {props.mail != "true" && (
+          <button
+            className="dashboardCard-button"
+            onClick={() => navigate("../chatroom")}
+          >
+            Match !
+          </button>
+        )}
+        {props.mail === "true" && (
+          <button className="dashboardCard-button" onClick={() => handleMail()}>
+            View Profile
+          </button>
+        )}
       </div>
     );
   }

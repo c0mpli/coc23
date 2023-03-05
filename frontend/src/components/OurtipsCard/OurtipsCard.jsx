@@ -11,7 +11,7 @@ function OurtipsCard(props) {
       <h2>{props.title}</h2>
       <p>{props.description}</p>
       <div className="outtips-card-bottomBar">
-        {props.events != "true" && (
+        {props.events != "true" && props.shop != "true" && (
           <>
             <img src={eyeIcon} />
             <p>{props.time} read</p>
@@ -34,6 +34,14 @@ function OurtipsCard(props) {
           onClick={() => navigate("../dashboard")}
         >
           Join
+        </button>
+      )}
+      {props.shop === "true" && (
+        <button
+          className="eventButton"
+          onClick={() => navigate("../dashboard")}
+        >
+          Buy now !
         </button>
       )}
     </div>

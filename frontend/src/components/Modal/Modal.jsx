@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Modal.css";
 
-function Modal({ setOpenModal }) {
+function Modal({ setOpenModal, setGameExists }) {
   const navigate = useNavigate();
   return (
     <div className="modalBackground">
@@ -32,7 +32,14 @@ function Modal({ setOpenModal }) {
           >
             No
           </button>
-          <button>Yes</button>
+          <button
+            onClick={() => {
+              setOpenModal(false);
+              setGameExists(true);
+            }}
+          >
+            Yes
+          </button>
         </div>
       </div>
     </div>

@@ -50,7 +50,6 @@ function Discover() {
           gap: "3rem",
           marginTop: "5rem",
           justifyContent: "center",
-          alignItems: "center",
         }}
         onclick={handleClick}
       >
@@ -65,6 +64,8 @@ function Discover() {
                 gender={value.gender}
                 color="#F2E1FF"
                 cardsData={data}
+                email={value.email}
+                mail="true"
               />
             </>
           );
