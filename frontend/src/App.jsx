@@ -31,7 +31,7 @@ function App() {
           />
           <Route path={"/events"} element={user ? <Events /> : <Login />} />
           <Route path={"/discover"} element={user ? <Discover /> : <Login />} />
-          <Route path={"/shop"} element={user ? <Shop /> : <Login />} />
+          <Route path={"/shop"} element={<Shop />} />
         </Routes>
       </BrowserRouter>
     </div>
