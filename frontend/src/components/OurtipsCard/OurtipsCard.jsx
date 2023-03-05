@@ -13,9 +13,9 @@ function OurtipsCard(props) {
       <div className="outtips-card-bottomBar">
         {props.events != "true" && props.shop != "true" && (
           <>
-            <img src={eyeIcon} />
-            <p>{props.time} read</p>
             <img src={timeIcon} />
+            <p>{props.time} read</p>
+            <img src={eyeIcon} />
             <p>{props.views} views</p>
           </>
         )}
