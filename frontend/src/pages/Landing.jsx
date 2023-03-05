@@ -194,6 +194,18 @@ function Landing() {
         </div>
         <img src={newsLetter} />
       </div>
+      <footer
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "black",
+          color: "white",
+          height: "5rem",
+        }}
+      >
+        Made with 🤍
+      </footer>
     </div>
   );
 }
