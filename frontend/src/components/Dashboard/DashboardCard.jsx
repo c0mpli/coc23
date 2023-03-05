@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function DashboardCard(props) {
+  const navigate = useNavigate();
   props.friends != "true" ||
     (props.friends === "true" && props.interest.contains("F.R.I.E.N.D.S"));
   {
@@ -28,7 +30,12 @@ function DashboardCard(props) {
             <p>{props.gender}</p>
           </div>
         </div>
-        <button className="dashboardCard-button">Chat !</button>
+        <button
+          className="dashboardCard-button"
+          onClick={() => navigate("../chatroom")}
+        >
+          Match !
+        </button>
       </div>
     );
   }

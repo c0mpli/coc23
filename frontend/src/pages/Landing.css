@@ -60,7 +60,7 @@
 }
 .explore-section,
 .readme-section {
-  margin-top: 38rem;
+  margin-top: 25rem;
   padding: 0 8%;
 }
 .explore-grids {
@@ -153,7 +153,7 @@
   justify-content: center;
 }
 .ourtips-cards img {
-  width: 100%;
+  width: auto;
   height: auto;
 }
 .newsletter-section {

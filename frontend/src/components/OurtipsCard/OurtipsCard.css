@@ -15,4 +15,9 @@
   text-align: center;
   align-items: center;
   font-size: 0.8rem;
+  width: 100% !important;
+}
+.outtips-card-bottomBar img {
+  width: 30px !important;
+  height: 30px;
 }

@@ -10,6 +10,8 @@ import AboutYou from "./pages/AboutYou";
 import Dashboard from "./pages/Dashboard";
 import { useAuthContext } from "./hooks/useAuthContext";
 import Events from "./pages/Events";
+import Chat from "./components/Chat/Chat";
+import Discover from "./pages/Discover";
 
 function App() {
   const { user } = useAuthContext();
@@ -19,7 +21,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Landing />} />
-          <Route path={"/chatroom"} element={<Chatroom />} />
+          <Route path={"/chatroom"} element={<Chat />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/aboutyou"} element={<AboutYou />} />
           <Route
@@ -27,6 +29,7 @@ function App() {
             element={user ? <Dashboard /> : <Login />}
           />
           <Route path={"/events"} element={user ? <Events /> : <Login />} />
+          <Route path={"/discover"} element={user ? <Discover /> : <Login />} />
         </Routes>
       </BrowserRouter>
     </div>

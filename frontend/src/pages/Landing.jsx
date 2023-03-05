@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import "./Landing.css";
 import heroBG from "../assets/hero-bg.png";
-
+import { useNavigate } from "react-router-dom";
 import readmeImg from "../assets/readme.png";
 import featuresIcon from "../assets/featuresIcon.png";
 import heartIcon from "../assets/heart.png";
@@ -52,6 +52,7 @@ import newsLetter from "../assets/newsletterBottom.png";
 }
 
 function Landing() {
+  const navigate = useNavigate();
   return (
     <div>
       <img className="hero-bg" src={heroBG} alt="bgImage" />
@@ -70,7 +71,7 @@ function Landing() {
           </p>
         </div>
         <div className="hero-buttons">
-          <button>Sign me up !👋</button>
+          <button onClick={() => navigate("/login")}>Sign me up !👋</button>
           <button>Why you ?🤔</button>
         </div>
       </div>

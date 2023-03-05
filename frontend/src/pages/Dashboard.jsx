@@ -43,6 +43,7 @@ function Dashboard() {
         auth: { user: { _id: localStorage.getItem("token") } },
       })
       .then((response) => {
+        console.log(response.data);
         setData(response.data);
         //setData(response.data);
         //setIsLoading(false);
@@ -56,7 +57,7 @@ function Dashboard() {
     matchUsers();
     locationUsers();
     getData();
-  }, []);
+  });
 
   return (
     <div className="dashboard-wrapper">
