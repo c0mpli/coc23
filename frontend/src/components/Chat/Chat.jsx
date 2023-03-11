@@ -12,7 +12,8 @@ import Modal from "../Modal/Modal";
 let socket;
 const ENDPOINT = "https://coc23-chatserver.c0mpli.repl.co";
 
-const Chat = () => {
+const Chat = ({user}) => {
+  
   const [modalOpen, setModalOpen] = useState(false);
   const [gameExists, setGameExists] = useState(false);
   useEffect(() => {
@@ -29,7 +30,6 @@ const Chat = () => {
     document.getElementById("chatInput").value = "";
   };
 
-  console.log(messages);
   useEffect(() => {
     socket = socketIo(ENDPOINT, { transports: ["websocket"] });
 
@@ -38,11 +38,6 @@ const Chat = () => {
     });
     console.log(socket);
     socket.emit("joined", { user });
-
-    socket.on("welcome", (data) => {
-      setMessages([...messages, data]);
-      console.log(data.user, data.message);
-    });
 
     socket.on("userJoined", (data) => {
       setMessages([...messages, data]);
