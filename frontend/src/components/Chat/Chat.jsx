@@ -10,7 +10,7 @@ import chatroomBg from "../../assets/chatroomBG.png";
 import Modal from "../Modal/Modal";
 
 let socket;
-const ENDPOINT = "http://localhost:80/";
+const ENDPOINT = "https://coc23-chatserver.c0mpli.repl.co";
 
 const Chat = () => {
   const [modalOpen, setModalOpen] = useState(false);
